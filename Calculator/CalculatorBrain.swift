@@ -49,15 +49,12 @@ class CalculatorBrain: Printable {
             case Op.UnaryOperation(let symbol, _):
                 if (stack.count > 1) {
                     var newExpression = "\(symbol)\(stackString[stackString.endIndex-1])"
-                    var parenthesisInsertionIndex = advance(newExpression.startIndex, countElements(symbol))
+                    var parenthesisInsertionIndex = advance(newExpression.startIndex, count(symbol))
                     if !stackString[stackString.endIndex-1].hasSuffix(")") {
                         newExpression.insert("(", atIndex: parenthesisInsertionIndex)
                         newExpression.insert(")", atIndex: newExpression.endIndex)
                     }
                     stackString.removeAtIndex(stackString.endIndex-1)
-                    if(stackString.count > 0) {
-                        stackString.append(", ")
-                    }
                     stackString.append(newExpression)
                 }
                 else {
@@ -68,9 +65,6 @@ class CalculatorBrain: Printable {
                     let newExpression = "(\(stackString[stackString.endIndex-2])\(symbol)\(stackString[stackString.endIndex-1]))"
                     stackString.removeAtIndex(stackString.endIndex-1)
                     stackString.removeAtIndex(stackString.endIndex-1)
-                    if(stackString.count > 0) {
-                        stackString.append(", ")
-                    }
                     stackString.append(newExpression)
                 }
                 else if (stackString.count == 1 && stackString[stackString.endIndex-1] != ", ") {
@@ -82,6 +76,9 @@ class CalculatorBrain: Printable {
                     stackString.append("?\(symbol)?")
                 }
             default:
+                if(stackString.count > 0) {
+                    stackString.append(", ")
+                }
                 stackString.append(op.description)
             }
         }
