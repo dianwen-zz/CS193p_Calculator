@@ -93,5 +93,18 @@ class CalculatorViewController: UIViewController {
             userIsInTheMiddleOfTypingANumber = false
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let gvc = destination as? GraphingViewController {
+            if segue.identifier == "graph" {
+                gvc.setModelProgram(brain.program)
+            }
+        }
+    }
 }
 

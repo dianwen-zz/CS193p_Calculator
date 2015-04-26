@@ -8,10 +8,17 @@
 
 import UIKit
 
-class GraphingViewController: UIViewController {
+class GraphingViewController: UIViewController, GraphingViewDataSource {
     
-    @IBOutlet weak var graphingView: GraphingView!
+    @IBOutlet weak var graphingView: GraphingView! {
+        didSet {
+            graphingView.dataSource = self
+        }
+    }
     
+    var model = GraphingModel()
+    
+   
     private struct Constants {
         static let PanGestureScale: CGFloat = 1
     }
@@ -37,7 +44,22 @@ class GraphingViewController: UIViewController {
         }
     }
     
+    @IBAction func moveOrigin(gesture: UITapGestureRecognizer) {
+        let tapLocation = gesture.locationInView(graphingView)
+        graphingView.panOffset = CGPointMake(tapLocation.x - graphingView.viewCenter.x, tapLocation.y - graphingView.viewCenter.y)
+        //println(graphingView.pixelXToUnitLocation(Double(tapLocation.x*graphingView.contentScaleFactor)))
+        updateUI()
+    }
+    
     func updateUI() {
         graphingView.setNeedsDisplay()
+    }
+    
+    func setModelProgram(program: AnyObject) {
+        model.program = program
+    }
+    
+    func calculateYValue(variableName: String, sender: GraphingView, xValue: Double) -> Double? {
+        return model.evaluate(variableName, variableValue: xValue) ?? nil
     }
 }

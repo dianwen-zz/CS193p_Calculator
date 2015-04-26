@@ -237,7 +237,7 @@
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="INq-JY-x51"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="=" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebb-gs-hMV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="=" textAlignment="right" lineBreakMode="headTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ebb-gs-hMV">
                                 <rect key="frame" x="16" y="72" width="547" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -257,10 +257,10 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4hj-tc-Gdt" kind="showDetail" id="Cxy-xs-NWj"/>
+                                    <segue destination="4hj-tc-Gdt" kind="showDetail" identifier="graph" id="Cxy-xs-NWj"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-Zp-Cn8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tHn-Zp-Cn8">
                                 <rect key="frame" x="568" y="72" width="16" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -420,6 +420,7 @@
                 <splitViewController id="Td0-E6-LdE" sceneMemberID="viewController">
                     <connections>
                         <segue destination="LD7-OF-9hl" kind="relationship" relationship="masterViewController" id="Vd4-Do-Z6x"/>
+                        <segue destination="4hj-tc-Gdt" kind="relationship" relationship="detailViewController" id="Fj7-kt-EmW"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tXc-kP-Ljj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -523,4 +524,7 @@
             <point key="canvasLocation" x="-214" y="1013"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Cxy-xs-NWj"/>
+    </inferredMetricsTieBreakers>
 </document>

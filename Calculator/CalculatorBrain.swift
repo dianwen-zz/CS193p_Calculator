@@ -10,7 +10,7 @@ import Foundation
 
 class CalculatorBrain: Printable {
     
-    private enum Op: Printable {
+    enum Op: Printable {
         case Operand(Double)
         case Constant(String, Double)
         case Variable(String)
@@ -61,7 +61,8 @@ class CalculatorBrain: Printable {
                     stackString = ["\(symbol)(?)"]
                 }
             case Op.BinaryOperation(let symbol, _):
-                if (stackString.count >= 2 && stackString[stackString.endIndex-2] != ", " && stackString[stackString.endIndex-1] != ", ") {
+                if (stackString.count >= 2 && stackString[stackString.endIndex-3] != ", " && stackString[stackString.endIndex-1] != ", ") {
+                    stackString.removeAtIndex(stackString.endIndex-2)
                     let newExpression = "(\(stackString[stackString.endIndex-2])\(symbol)\(stackString[stackString.endIndex-1]))"
                     stackString.removeAtIndex(stackString.endIndex-1)
                     stackString.removeAtIndex(stackString.endIndex-1)
@@ -90,7 +91,7 @@ class CalculatorBrain: Printable {
     
     private var knownOps = [String:Op]()
     
-    private var variableValues = [String:Double]()
+    var variableValues = [String:Double]()
     
     init() {
         func learnOp(op: Op) {
@@ -118,11 +119,11 @@ class CalculatorBrain: Printable {
                     if let op = knownOps[opSymbol] {
                         newOpStack.append(op)
                     }
-                    if let variableValue = variableValues[opSymbol] {
-                        newOpStack.append(Op.Variable(opSymbol))
-                    }
                     else if let operand = NSNumberFormatter().numberFromString(opSymbol)?.doubleValue {
                         newOpStack.append(Op.Operand(operand))
+                    }
+                    else {
+                        newOpStack.append(Op.Variable(opSymbol))
                     }
                 }
                 opStack = newOpStack
@@ -130,7 +131,7 @@ class CalculatorBrain: Printable {
         }
     }
     
-    private func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
+    func evaluate(ops: [Op]) -> (result: Double?, remainingOps: [Op]) {
         if !ops.isEmpty {
             var remainingOps = ops
             let op = remainingOps.removeLast()
@@ -161,7 +162,7 @@ class CalculatorBrain: Printable {
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        println("\(opStack) = \(result) with \(remainder) left over")
+        //println("\(opStack) = \(result) with \(remainder) left over")
         return result
     }
     

@@ -17,6 +17,7 @@
 		AEE2F3A31AEC26D700B06080 /* GraphingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2F3A21AEC26D700B06080 /* GraphingViewController.swift */; };
 		AEE2F3A71AEC2C2200B06080 /* AxesDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2F3A61AEC2C2200B06080 /* AxesDrawer.swift */; };
 		AEE2F3A91AEC2D3B00B06080 /* GraphingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2F3A81AEC2D3B00B06080 /* GraphingView.swift */; };
+		AEE2F3AD1AEC778900B06080 /* GraphingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE2F3AC1AEC778900B06080 /* GraphingModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		AEE2F3A21AEC26D700B06080 /* GraphingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphingViewController.swift; sourceTree = "<group>"; };
 		AEE2F3A61AEC2C2200B06080 /* AxesDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxesDrawer.swift; sourceTree = "<group>"; };
 		AEE2F3A81AEC2D3B00B06080 /* GraphingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphingView.swift; sourceTree = "<group>"; };
+		AEE2F3AC1AEC778900B06080 /* GraphingModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphingModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				32B765B91AD442140025BD0F /* Main.storyboard */,
 				AEE2F3A21AEC26D700B06080 /* GraphingViewController.swift */,
 				325FC7881AD81F8C0021FC1B /* CalculatorBrain.swift */,
+				AEE2F3AC1AEC778900B06080 /* GraphingModel.swift */,
 				AEE2F3A61AEC2C2200B06080 /* AxesDrawer.swift */,
 				AEE2F3A81AEC2D3B00B06080 /* GraphingView.swift */,
 				32B765B31AD442140025BD0F /* Supporting Files */,
@@ -225,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEE2F3A91AEC2D3B00B06080 /* GraphingView.swift in Sources */,
+				AEE2F3AD1AEC778900B06080 /* GraphingModel.swift in Sources */,
 				325FC7891AD81F8C0021FC1B /* CalculatorBrain.swift in Sources */,
 				32B765B81AD442140025BD0F /* CalculatorViewController.swift in Sources */,
 				AEE2F3A71AEC2C2200B06080 /* AxesDrawer.swift in Sources */,
