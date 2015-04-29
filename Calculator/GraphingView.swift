@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GraphingViewDataSource: class{
+protocol GraphingViewDataSource: class {
     func calculateYValue(variableName: String, sender: GraphingView, xValue: Double) -> Double?
 }
 
@@ -51,13 +51,6 @@ class GraphingView: UIView {
                     skippedPoint = true
                 }
             }
-            
-            
-            
-            
-            
-            
-
         }
         path.stroke()
     }
